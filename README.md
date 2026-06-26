@@ -165,3 +165,24 @@ Applies learned rules after the signal engine. Use paper trading first.
 ## License
 
 MIT — use at your own risk. No warranty.
+
+---
+
+## Publish to GitHub
+
+Local git is ready (`main` branch). To create the public repo and push:
+
+1. **Revoke any PAT you pasted in chat** — generate a fresh one at [github.com/settings/tokens](https://github.com/settings/tokens)
+2. **Classic token:** enable **`repo`** scope  
+   **Fine-grained token:** All repositories + **Contents: Read and write** + **Administration: Read and write**
+3. Run:
+
+```bash
+export GITHUB_TOKEN='your_token_here'
+chmod +x scripts/publish.sh
+./scripts/publish.sh
+```
+
+Target repo: **https://github.com/Big-Brother/btc-predict**
+
+If repo creation fails, create an empty public repo named `btc-predict` at [github.com/new](https://github.com/new), then re-run the script.
