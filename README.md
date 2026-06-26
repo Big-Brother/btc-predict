@@ -45,6 +45,86 @@ ollama serve                       # default http://localhost:11434
 
 ---
 
+## Getting signals
+
+Signals are **LONG**, **SHORT**, or **FLAT**. Each tradeable signal includes **confidence (0–100)**, **timeframe** (5m–1D), **entry**, **stop-loss**, **take-profit**, **risk %**, and **max hold** hours.
+
+### How the pipeline decides
+
+```
+News headlines  →  sentiment score (macro-weighted lexicon, or LLM)
+       +
+1h / 4h / 24h sub-trends  (from recent OHLC)
+       +
+Macro cycle phase  (bear until Oct 2026 — background filter, not always SHORT)
+       ↓
+Confluence rules  (min confidence 52, late-chase block after 16:00 UTC, bear-LONG guards, etc.)
+       ↓
+Learned instincts  (live + walk-forward backtest — blocks repeat loss patterns)
+       ↓
+Position setup  →  SL / TP / risk $ from confidence + trade style
+```
+
+**Live** uses full LLM (`analyze_with_llm`). **Default backtests** use the lexicon proxy (same filters). See [Backtests & LLM (notes)](#backtests--llm-notes) at the bottom.
+
+### Option A — Live signal (one poll)
+
+```bash
+cd work && source .venv/bin/activate
+python trade_cycle.py
+```
+
+Prints an alert like:
+
+```
+🔴 SHORT — 85% · 4h
+Entry:  $62,823.03
+Stop:   $63,280.70 (+0.73%)
+TP:     $61,115.92 (-2.72%)
+Risk 1.83% ($1,827) · R:R 3.73 → $6,822 · max hold 12.0h
+```
+
+Also writes `latest_analysis.json` and logs to `alerts.log`. With Telegram env vars set, the same text is sent to your chat.
+
+### Option B — Dashboard (continuous)
+
+```bash
+streamlit run btc_superduper_predictor.py
+```
+
+Refreshes every `SCHEDULE_MINUTES` (default 5). Shows news, LLM analysis, sub-trends, and day-trade signal on the UI. History in `btc_predictions_history.csv`.
+
+### Option C — Backtest one day (replay)
+
+Simulates scheduler polls at **08:00 / 12:00 / 16:00 / 20:00 UTC**; **first actionable signal** of the day wins.
+
+```bash
+python backtest_yesterday.py --date 2026-06-24
+python backtest_yesterday.py --date 2026-06-24 --llm   # Ollama instead of lexicon
+```
+
+Output includes a **poll log** (what fired each hour) and full **entry / SL / TP / outcome** if a trade was taken. JSON saved to `backtest_yesterday.json`.
+
+### Option D — Backtest a range
+
+```bash
+python backtest_week.py --from 2026-06-22 --to 2026-06-26
+python prop_account.py --from 2026-06-01 --to 2026-06-26 --equity 100000
+```
+
+### Reading a signal
+
+| Field | Meaning |
+|-------|---------|
+| **LONG / SHORT / FLAT** | Direction for the next hold window, or no trade |
+| **Confidence** | 52+ required to trade; higher → larger risk % and wider R:R |
+| **trade_style** | e.g. `macro_correction`, `with_subtrend`, `with_macro_and_subtrend` |
+| **news_score** | Negative = bearish headlines, positive = bullish (backtests) |
+| **Stop / TP** | Volatility-scaled from entry; checked on hourly bars in backtest |
+| **Outcome** | `TAKE_PROFIT`, `STOP_LOSS`, `MAX_HOLD`, `SESSION_END`, `NO_TRADE` |
+
+---
+
 ## Usage
 
 All commands run from **`work/`** with the venv activated.
@@ -63,7 +143,7 @@ Auto-refreshes on a schedule (`SCHEDULE_MINUTES`, default 5). Writes `latest_ana
 python trade_cycle.py
 ```
 
-Polls news, runs confluence + learned rules, outputs SL/TP via `position_manager`. Optional Telegram alerts if configured.
+Polls news, runs LLM + learned rules, outputs SL/TP via `position_manager`. Optional Telegram alerts if configured.
 
 ### 3. Backtests (historical replay)
 
@@ -111,6 +191,80 @@ SIGNAL_MODE=hybrid python backtest_yesterday.py --date 2026-06-24
 Details: `work/backtest_june_notes.md` · `work/backtest_june_report.json`
 
 ---
+
+## Example signals & positions (June 2026 replay)
+
+Real output from `python backtest_yesterday.py --date …` (confluence mode). Prices are BTC-USD at replay entry.
+
+### Win — SHORT · take profit (Jun 24)
+
+**Poll log:** 08:00 FLAT → **12:00 SHORT 85%** → 16:00 FLAT → 20:00 FLAT
+
+```
+🔴 SHORT — 85% · 4h · macro_correction
+Entry:  $62,823   Stop: $63,281 (+0.73%)   TP: $61,116 (-2.72%)
+News score: -5.56 · Macro: downtrend · 12 headlines at entry
+Outcome: TAKE_PROFIT · exit $61,116 @ 14:00 UTC · PnL +2.72%
+Day: open $62,645 → close $60,983 (buy & hold −2.65%)
+```
+
+Prop sim that day: **+$8,367** on ~$131k equity (2.5% risk tier, 3.73R).
+
+### Win — SHORT · macro + sub-trend (Jun 3)
+
+```
+🔴 SHORT · macro_correction · news -16.8
+Outcome: MAX_HOLD · PnL +3.27%
+```
+
+Strong bear news aligned with 4h down — one of the best days of the month.
+
+### Loss — SHORT · stop hit (Jun 10)
+
+**Poll log:** 08:00 SHORT 95% → 12:00 SHORT 95% → 16:00 SHORT 85% → 20:00 FLAT
+
+```
+🔴 SHORT — 95% · 4h · macro_correction
+Entry:  $61,632   Stop: $62,171 (+0.87%)   TP: $59,555 (-3.37%)
+News score: -8.12 · 1h ↑ · 4h flat · 24h ↓  (chop — price bounced into stop)
+Outcome: STOP_LOSS · exit $62,171 @ 13:00 UTC · PnL −0.87%
+Day: open $61,698 → close $61,451
+```
+
+Pattern: SHORT into **1h/4h not clearly down** — same failure mode as several June losses.
+
+### Loss — weak news, late poll (Jun 7)
+
+```
+🔴 SHORT · with_macro_and_subtrend · news -1.0 · poll 16:00 UTC
+Outcome: STOP_LOSS · PnL −1.17%
+Sub-trends: 24h ↑ (+2.15%) — fading a rally without strong bear news
+```
+
+### Flat — no trade (Jun 25)
+
+**Poll log:** all four polls FLAT (confidence below threshold or filters blocked entry)
+
+```
+⚪ FLAT all day · Macro: downtrend · 100 headlines but no confluence edge
+Outcome: NO_TRADE · PnL 0%
+Day: open $60,988 → close $59,704 (buy & hold −2.11% — system sat out)
+```
+
+### June scorecard (confluence backtest)
+
+| Result | Count | Examples |
+|--------|-------|----------|
+| **Wins** | 14 | Jun 1, 3, 5, 9, 24 (+2.72%), 26… |
+| **Losses** | 5 | Jun 4 (−0.02%), 7 (−1.17%), 10 (−0.87%), 17, 19 |
+| **Flat** | 7 | Jun 2, 8, 11, 12, 16, 18, 25 |
+
+Run any date yourself:
+
+```bash
+python backtest_yesterday.py --date 2026-06-24
+```
+
 
 ## Linking your own LLM (Ollama)
 
