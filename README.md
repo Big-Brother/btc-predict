@@ -255,6 +255,71 @@ Python · Streamlit · pandas · requests · feedparser · yfinance · Ollama (o
 
 ---
 
+## Backtests & LLM (notes)
+
+Backtests **do** use **news + charts + macro cycle**. By default they use a **macro-weighted lexicon + confluence rules** instead of calling Ollama on every poll. Live `trade_cycle.py` uses full LLM; backtests default to the fast path so you can iterate rules and replay months in seconds.
+
+### What each backtest path uses
+
+| Input | Default (`confluence`) | LLM (`--llm`) | Hybrid (`SIGNAL_MODE=hybrid`) |
+|-------|------------------------|---------------|-------------------------------|
+| Archived news for replay day | Yes | Yes | Yes |
+| Hourly chart → 1h/4h/24h sub-trends | Yes | Yes | Yes |
+| Macro cycle phase | Yes | Yes | Yes |
+| Ollama analysis | No — lexicon proxy | Yes — every poll | Only on borderline / FLAT-with-news days |
+
+June 2026 results (73.7% WR, +15.7% chart PnL) were run on **confluence**, not full LLM. `prop_account.py` and `backtest_month.py` call the same default unless you opt in.
+
+### Why LLM is not the default in backtests
+
+1. **Speed** — Full June ≈ 26 days × 4 polls = 100+ Ollama calls (hours). Lexicon replay ≈ 30 seconds.
+2. **Reproducibility** — Lexicon is deterministic; LLM answers can vary run-to-run.
+3. **Lexicon as LLM proxy** — `signal_engine.py` + macro-weighted `news_sentiment.py` mirror the live pipeline: headlines → sentiment → trend filters → LONG/SHORT/FLAT.
+4. **Hybrid did not beat confluence on the benchmark week** (Jun 22–26): same 100% WR and PnL; no borderline days triggered LLM.
+5. **Historical LLM replay caveat** — `--llm` runs **today’s model** on **old news**. Useful, but not “what the model would have said on that date in the past.”
+
+Losses in June were mostly **SHORT into chop** (weak news, 24h rallying, afternoon entries) — rule/filter issues, not missing LLM.
+
+### How to backtest with LLM
+
+**Full LLM every poll** (slow; Ollama required):
+
+```bash
+cd work && source .venv/bin/activate
+export OLLAMA_BASE_URL=http://localhost:11434
+export OLLAMA_MODEL=qwen3:14b
+
+python backtest_yesterday.py --date 2026-06-24 --llm
+python backtest_week.py --from 2026-06-01 --to 2026-06-26 --llm
+```
+
+**Hybrid** (confluence first, Ollama on borderline cases):
+
+```bash
+SIGNAL_MODE=hybrid python backtest_yesterday.py --date 2026-06-24
+SIGNAL_MODE=hybrid python upgrade_eval.py --keep-hybrid
+```
+
+**Live pipeline** always uses LLM when Ollama is up:
+
+```bash
+python trade_cycle.py
+```
+
+### Scripts and LLM support
+
+| Script | Default signal | Enable LLM |
+|--------|----------------|------------|
+| `backtest_yesterday.py` | Confluence / hybrid | `--llm` or `SIGNAL_MODE=hybrid` |
+| `backtest_week.py` | Confluence / hybrid | `--llm` or `SIGNAL_MODE=hybrid` |
+| `backtest_month.py` | Confluence only | `SIGNAL_MODE=hybrid` (no `--llm` flag yet) |
+| `prop_account.py` | Confluence only | Uses `run_replay()` default |
+| `trade_cycle.py` | Full LLM | Always (falls back if Ollama down) |
+
+To compare confluence vs hybrid vs full LLM on the same date range, use `upgrade_eval.py` or run week backtests with and without `--llm`.
+
+---
+
 ## License
 
 MIT — use at your own risk. No warranty.
