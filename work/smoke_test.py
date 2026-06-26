@@ -16,6 +16,10 @@ sys.path.insert(0, str(WORK_DIR))
 MIN_LIVE_ARTICLES = 5
 
 
+def ollama_base_url() -> str:
+    return os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434").rstrip("/")
+
+
 def pick_ollama_model() -> str:
     preferred = os.environ.get("OLLAMA_MODEL")
     if preferred:
@@ -23,7 +27,7 @@ def pick_ollama_model() -> str:
     try:
         import requests
 
-        tags = requests.get("http://localhost:11434/api/tags", timeout=5).json().get("models", [])
+        tags = requests.get(f"{ollama_base_url()}/api/tags", timeout=5).json().get("models", [])
         names = [m.get("name", "") for m in tags]
         for candidate in ("qwen3:14b", "llama3:latest", "deepseek-r1:8b", "llama3:8b-instruct-q4_0"):
             if candidate in names:
@@ -77,7 +81,7 @@ def main() -> int:
     def test_ollama_reachable():
         import requests
 
-        resp = requests.get("http://localhost:11434/api/tags", timeout=5)
+        resp = requests.get(f"{ollama_base_url()}/api/tags", timeout=5)
         resp.raise_for_status()
         models = [m["name"] for m in resp.json().get("models", [])]
         assert model in models, f"Model {model!r} not in Ollama: {models}"

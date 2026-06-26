@@ -1,6 +1,6 @@
 # BTC Predict
 
-Local Bitcoin day-trading intelligence: fast news aggregation, macro-aware sentiment, confluence signals, backtests, and optional Ollama LLM analysis.
+Local Bitcoin day-trading intelligence: fast news aggregation, macro-aware sentiment, confluence signals, backtests, walk-forward learning, and optional LLM analysis via **Ollama** (local or remote).
 
 **Macro conviction (baked in):** structural bear until **October 5, 2026** — day trades still follow 1h/4h/24h sub-trends and news, not blind always-short.
 
@@ -8,72 +8,98 @@ Local Bitcoin day-trading intelligence: fast news aggregation, macro-aware senti
 
 ---
 
-## What it does
+## Prerequisites
 
-| Layer | Role |
-|-------|------|
-| **News** | RSS + CryptoPanic-style feeds, headline lexicon (macro-weighted) |
-| **Trends** | 1h / 4h / 24h sub-trends + macro cycle phase |
-| **Signals** | Confluence engine: news score + trend filters + late-chase guard |
-| **Risk** | Confidence → position size (0.4–2.5%) and R:R (1.8–4.0) |
-| **Learning** | Walk-forward instincts from losses → `trade_learning.json` |
-| **LLM (optional)** | Ollama on borderline cases when `SIGNAL_MODE=hybrid` |
+| Requirement | Notes |
+|-------------|--------|
+| **Python 3.11+** | 3.12 / 3.14 tested in dev |
+| **Internet** | Live news + price data (CoinGecko, RSS feeds) |
+| **Ollama** (optional) | For LLM dashboard, `--llm` backtests, or `SIGNAL_MODE=hybrid` |
+| **Telegram** (optional) | Trade alerts via bot token |
+
+Core backtests and the confluence signal engine **do not require an LLM**.
 
 ---
 
-## Quick start
-
-All active development lives in **`work/`**.
+## Installation
 
 ```bash
-cd work
+git clone https://github.com/Big-Brother/btc-predict.git
+cd btc-predict/work
+
 python3 -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
-# Optional: copy env template from repo root
-cp ../.env.example ../.env
+cp ../.env.example ../.env         # edit as needed
+python smoke_test.py               # verify news (+ Ollama if running)
+```
 
-# Smoke test (news + optional Ollama)
-python smoke_test.py
+### Optional: Ollama (local LLM)
 
-# Streamlit dashboard + scheduler
+```bash
+# Install from https://ollama.com — then:
+ollama pull qwen3:14b              # or llama3, deepseek-r1, etc.
+ollama serve                       # default http://localhost:11434
+```
+
+---
+
+## Usage
+
+All commands run from **`work/`** with the venv activated.
+
+### 1. Streamlit dashboard (live news + analysis)
+
+```bash
 streamlit run btc_superduper_predictor.py
 ```
 
-**Ollama (optional, for LLM / hybrid mode):**
+Auto-refreshes on a schedule (`SCHEDULE_MINUTES`, default 5). Writes `latest_analysis.json` and appends to `btc_predictions_history.csv`.
+
+### 2. Scheduled trade cycle (signals + learning + alerts)
 
 ```bash
-ollama pull qwen3:14b
-ollama serve   # default http://localhost:11434
+python trade_cycle.py
 ```
 
----
+Polls news, runs confluence + learned rules, outputs SL/TP via `position_manager`. Optional Telegram alerts if configured.
 
-## Backtests (June 2026 replay)
+### 3. Backtests (historical replay)
 
-Real daily replay — polls at 08:00 / 12:00 / 16:00 / 20:00 UTC, first actionable signal only.
+Polls at **08:00 / 12:00 / 16:00 / 20:00 UTC** — first actionable signal per day.
 
 ```bash
-cd work && source .venv/bin/activate
-
 # Single day
 python backtest_yesterday.py --date 2026-06-24
 
-# Week
+# Week range
 python backtest_week.py --from 2026-06-22 --to 2026-06-26
 
-# Full month + walk-forward learning + notes
+# Full month + walk-forward learning + markdown notes
 python backtest_month.py --from 2026-06-01 --to 2026-06-26 --learn
 
-# Prop account sim ($100k, flex risk)
+# Prop account sim ($100k, confidence-flex risk sizing)
 python prop_account.py --from 2026-06-01 --to 2026-06-26 --equity 100000
 
-# Compare upgrade vs saved baseline; auto-revert if worse
+# A/B upgrade vs baseline (auto-revert if worse)
 python upgrade_eval.py
 ```
 
-### Sample results (Jun 1–26, 2026, upgraded stack)
+### 4. Signal modes
+
+| Mode | How to enable | Behavior |
+|------|---------------|----------|
+| **Confluence** (default) | `SIGNAL_MODE=best` or unset | Macro-weighted lexicon + trend filters |
+| **Hybrid** | `SIGNAL_MODE=hybrid` | Confluence + Ollama on borderline days |
+| **Full LLM backtest** | `python backtest_yesterday.py --llm` | Ollama for every replay day (slow) |
+
+```bash
+# Hybrid example
+SIGNAL_MODE=hybrid python backtest_yesterday.py --date 2026-06-24
+```
+
+### Sample backtest results (Jun 1–26, 2026)
 
 | Metric | Value |
 |--------|--------|
@@ -82,23 +108,94 @@ python upgrade_eval.py
 | Chart PnL (sum of trade %) | **+15.7%** |
 | $100k prop sim (flex sizing) | **+$33,899 (+33.9%)** |
 
-Notes and loss patterns: `work/backtest_june_notes.md` · Full JSON: `work/backtest_june_report.json`
+Details: `work/backtest_june_notes.md` · `work/backtest_june_report.json`
 
 ---
 
-## Signal modes
+## Linking your own LLM (Ollama)
 
-| `SIGNAL_MODE` | Behavior |
-|---------------|----------|
-| `best` (default) | Macro-weighted lexicon + confluence rules |
-| `hybrid` | Above + Ollama second opinion on borderline / FLAT-with-news days |
+The stack uses the **Ollama HTTP API** (`/api/chat` with JSON output). Any server that speaks this protocol works — local Ollama, a remote machine on your LAN, or a cloud VM running Ollama.
 
-Version snapshots (`best`, `upgrade`, `upgraded`) under `work/versions/` — restore with:
+### Environment variables
+
+Set in `.env` (repo root) or export before running:
 
 ```bash
-python version_manager.py restore best
-python version_manager.py list
+OLLAMA_BASE_URL=http://localhost:11434   # change to your endpoint
+OLLAMA_MODEL=qwen3:14b                   # must match a model on that server
 ```
+
+### Examples
+
+**Local (default)**
+
+```bash
+OLLAMA_BASE_URL=http://localhost:11434
+OLLAMA_MODEL=qwen3:14b
+```
+
+**Remote Ollama on another machine**
+
+```bash
+OLLAMA_BASE_URL=http://192.168.1.121:11434
+OLLAMA_MODEL=qwen3:14b
+```
+
+**Remote with auth / reverse proxy**
+
+Point `OLLAMA_BASE_URL` at your proxy base URL (no trailing slash). The app calls `{OLLAMA_BASE_URL}/api/chat` and `{OLLAMA_BASE_URL}/api/tags`.
+
+```bash
+OLLAMA_BASE_URL=https://ollama.myserver.example
+OLLAMA_MODEL=llama3:latest
+```
+
+If your proxy adds headers (API keys), set them in `work/btc_superduper_predictor.py` in the `analyze_with_llm` request — or put Ollama behind a local tunnel.
+
+### Verify connectivity
+
+```bash
+curl "$OLLAMA_BASE_URL/api/tags"
+python smoke_test.py
+```
+
+### Model recommendations
+
+| Model | Use case |
+|-------|----------|
+| `qwen3:14b` | Default — good JSON + reasoning |
+| `llama3:latest` | Faster, lighter |
+| `deepseek-r1:8b` | Alternative reasoning model |
+
+Smaller models work for experiments; confluence mode (`SIGNAL_MODE=best`) is recommended for backtests without LLM latency.
+
+### Where LLM is used
+
+| Component | LLM role |
+|-----------|----------|
+| `btc_superduper_predictor.py` | Dashboard + `analyze_with_llm()` |
+| `trade_cycle.py` | Live cycle (full LLM path) |
+| `signal_hybrid.py` | Second opinion on borderline confluence signals |
+| `backtest_yesterday.py --llm` | Full LLM replay (slow) |
+
+---
+
+## Environment variables
+
+Copy `.env.example` → `.env`:
+
+| Variable | Default | Purpose |
+|----------|---------|---------|
+| `OLLAMA_BASE_URL` | `http://localhost:11434` | Ollama server URL |
+| `OLLAMA_MODEL` | `qwen3:14b` | Model name on that server |
+| `SIGNAL_MODE` | `best` | `best` (confluence) or `hybrid` |
+| `SCHEDULE_MINUTES` | `5` | Dashboard / cycle poll interval |
+| `PROP_ACCOUNT_SIZE` | `100000` | Prop sim starting equity |
+| `COINGECKO_API_KEY` | — | Optional pro API for prices |
+| `TELEGRAM_BOT_TOKEN` | — | Optional alert bot |
+| `TELEGRAM_CHAT_ID` | — | Optional alert chat |
+| `MIN_RISK_PCT` / `MAX_RISK_PCT` | `0.004` / `0.025` | Flex risk bounds |
+| `NEWS_USER_AGENT` | Chrome UA | Some feeds require a browser UA |
 
 ---
 
@@ -106,83 +203,58 @@ python version_manager.py list
 
 ```
 btc-predict/
-├── README.md                 ← you are here
+├── README.md
 ├── .env.example
-├── work/                     ← main application
-│   ├── btc_superduper_predictor.py   # Streamlit + live cycle
+├── work/                          ← run everything from here
+│   ├── btc_superduper_predictor.py   # Streamlit + LLM analysis
 │   ├── trade_cycle.py                # Scheduled live pipeline
 │   ├── signal_engine.py              # Confluence rules
-│   ├── signal_hybrid.py              # Optional LLM upgrade path
+│   ├── signal_hybrid.py              # Optional LLM upgrade
 │   ├── news_sentiment.py             # Macro-weighted lexicon
 │   ├── news_fetcher.py               # Live news sources
 │   ├── trend_context.py              # 1h/4h/24h sub-trends
 │   ├── market_cycle.py               # Macro bear until Oct 2026
 │   ├── risk_sizing.py                # Confidence → risk & R:R
-│   ├── position_manager.py           # SL/TP + Telegram alerts
+│   ├── position_manager.py           # SL/TP + Telegram
 │   ├── trade_learning.py             # Walk-forward instincts
 │   ├── backtest_*.py                 # Replay & prop sim
 │   ├── version_manager.py            # Save / restore signal stack
 │   ├── upgrade_eval.py               # Upgrade A/B + auto-revert
+│   ├── smoke_test.py                 # Install verification
 │   ├── data/trade_learning.json      # Learned patterns
 │   └── requirements.txt
-└── (legacy root scripts — use work/ instead)
+└── scripts/publish.sh
 ```
 
 ---
 
-## Environment variables
+## Version snapshots
 
-See `.env.example`. Common settings:
-
-- `PROP_ACCOUNT_SIZE` — prop sim starting equity (default `100000`)
-- `OLLAMA_MODEL` — model tag for hybrid / LLM backtests
-- `SIGNAL_MODE` — `best` or `hybrid`
-- `TELEGRAM_BOT_TOKEN` / `TELEGRAM_CHAT_ID` — optional trade alerts
-- `COINGECKO_API_KEY` — optional pro API for price data
-
----
-
-## Live trading cycle
+Saved signal stacks under `work/versions/` (`best`, `upgrade`, `upgraded`):
 
 ```bash
-cd work && source .venv/bin/activate
-python trade_cycle.py
+python version_manager.py list
+python version_manager.py restore best
+python version_manager.py save my-tweak
 ```
 
-Applies learned rules after the signal engine. Use paper trading first.
+---
+
+## Self-improvement loop
+
+1. Losses append pattern signatures to `data/trade_learning.json`
+2. `backtest_month.py --learn` applies instincts **only to future days** (no peeking)
+3. Live: `trade_learning.apply_learned_rules()` runs after the signal engine
+4. Promote repeated instincts into `signal_engine.py` filters
 
 ---
 
 ## Tech stack
 
-- Python 3.11+
-- Streamlit, pandas, requests, feedparser, yfinance
-- Ollama (local LLM, optional)
-- No cloud dependency for core backtests
+Python · Streamlit · pandas · requests · feedparser · yfinance · Ollama (optional)
 
 ---
 
 ## License
 
 MIT — use at your own risk. No warranty.
-
----
-
-## Publish to GitHub
-
-Local git is ready (`main` branch). To create the public repo and push:
-
-1. **Revoke any PAT you pasted in chat** — generate a fresh one at [github.com/settings/tokens](https://github.com/settings/tokens)
-2. **Classic token:** enable **`repo`** scope  
-   **Fine-grained token:** All repositories + **Contents: Read and write** + **Administration: Read and write**
-3. Run:
-
-```bash
-export GITHUB_TOKEN='your_token_here'
-chmod +x scripts/publish.sh
-./scripts/publish.sh
-```
-
-Target repo: **https://github.com/Big-Brother/btc-predict**
-
-If repo creation fails, create an empty public repo named `btc-predict` at [github.com/new](https://github.com/new), then re-run the script.

@@ -21,6 +21,7 @@ from signal_engine import build_day_trade_signal
 # ====================== CONFIG ======================
 WORK_DIR = Path(__file__).resolve().parent
 OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "qwen3:14b")
+OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434").rstrip("/")
 NEWS_USER_AGENT = os.environ.get(
     "NEWS_USER_AGENT",
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
@@ -151,7 +152,7 @@ Return **valid JSON only**:
 """
 
     try:
-        resp = requests.post("http://localhost:11434/api/chat", json={
+        resp = requests.post(f"{OLLAMA_BASE_URL}/api/chat", json={
             "model": OLLAMA_MODEL,
             "messages": [{"role": "user", "content": prompt}],
             "stream": False,

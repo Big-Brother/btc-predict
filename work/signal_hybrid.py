@@ -11,11 +11,15 @@ from typing import Any
 from signal_engine import build_day_trade_signal
 
 
+def _ollama_base_url() -> str:
+    return os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434").rstrip("/")
+
+
 def _ollama_available() -> bool:
     try:
         import requests
 
-        r = requests.get("http://localhost:11434/api/tags", timeout=3)
+        r = requests.get(f"{_ollama_base_url()}/api/tags", timeout=3)
         return r.status_code == 200 and bool(r.json().get("models"))
     except Exception:
         return False
