@@ -1,0 +1,77 @@
+def fetch_fast_news():
+    articles = []
+    sources_tried = 0
+    
+    # === Primary: cryptocurrency.cv (fast aggregator) ===
+    try:
+        r = requests.get("https://cryptocurrency.cv/api/news?limit=30&coins=BTC", timeout=10)
+        if r.status_code == 200:
+            data = r.json()
+            fetched = data.get("articles", [])
+            if fetched:
+                articles.extend([{
+                    "title": a.get("title"),
+                    "summary": a.get("description", a.get("summary", ""))[:700],
+                    "source": a.get("source", "Unknown"),
+                    "url": a.get("url"),
+                    "published": a.get("published_at")
+                } for a in fetched])
+                print(f"✅ cryptocurrency.cv: {len(fetched)} articles")
+    except:
+        pass
+    
+    # === Fallback 1: CoinGecko News (very reliable) ===
+    if len(articles) < 10:
+        try:
+            r = requests.get("https://api.coingecko.com/api/v3/news?per_page=20", timeout=10)
+            if r.status_code == 200:
+                data = r.json()
+                for item in data:
+                    if "bitcoin" in item.get("title", "").lower() or "btc" in item.get("title", "").lower() or "bitcoin" in item.get("description", "").lower():
+                        articles.append({
+                            "title": item.get("title"),
+                            "summary": item.get("description", "")[:700],
+                            "source": item.get("news_site", "CoinGecko"),
+                            "url": item.get("url"),
+                            "published": item.get("created_at")
+                        })
+                print(f"✅ CoinGecko: {len(articles)} BTC-related articles")
+        except:
+            pass
+    
+    # === Fallback 2: RSS Feeds (always works) ===
+    if len(articles) < 8:
+        rss_articles = fallback_rss_news()
+        articles.extend(rss_articles)
+        print(f"✅ RSS Fallback: {len(rss_articles)} articles")
+    
+    # Deduplicate
+    unique = {a["title"]: a for a in articles if a.get("title")}
+    articles = list(unique.values())[:30]
+    
+    print(f"Total articles loaded: {len(articles)}")
+    return articles
+
+
+def fallback_rss_news():
+    """Simple RSS fallback"""
+    feeds = [
+        "https://cointelegraph.com/rss",
+        "https://cryptoslate.com/feed/",
+        "https://news.bitcoin.com/feed/",
+    ]
+    articles = []
+    for url in feeds:
+        try:
+            feed = feedparser.parse(url)
+            for entry in feed.entries[:6]:
+                articles.append({
+                    "title": entry.title,
+                    "summary": entry.get("summary", entry.get("description", ""))[:700],
+                    "source": url.split("//")[1].split("/")[0],
+                    "url": entry.link,
+                    "published": entry.get("published", "")
+                })
+        except:
+            continue
+    return articles

@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+latest_analysis.json
+btc_predictions_history.csv
+backtest_equity.csv
+backtest_results.csv
+backtest_summary.json
+open_positions.json
+backtest_yesterday.json

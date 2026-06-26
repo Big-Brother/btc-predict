@@ -1,0 +1,12 @@
+{
+  "saved_at": "2026-06-26T12:24:55.347100+00:00",
+  "note": "macro lexicon upgrade passed eval",
+  "files": [
+    "signal_engine.py",
+    "news_sentiment.py",
+    "trade_learning.py",
+    "signal_hybrid.py",
+    "backtest_yesterday.py",
+    "trade_cycle.py"
+  ]
+}

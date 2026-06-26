@@ -1,0 +1,1867 @@
+{
+  "period": {
+    "from": "2026-06-01",
+    "to": "2026-06-26"
+  },
+  "baseline": {
+    "patterns": {
+      "days_total": 26,
+      "trades_taken": 19,
+      "flat_days": 7,
+      "wins": 14,
+      "losses": 5,
+      "win_rate": 0.737,
+      "by_style_win": {
+        "macro_correction": 8,
+        "with_subtrend": 4,
+        "with_macro_and_subtrend": 2
+      },
+      "by_style_loss": {
+        "with_macro_and_subtrend": 3,
+        "macro_correction": 2
+      },
+      "by_signal_win": {
+        "SHORT": 10,
+        "LONG": 4
+      },
+      "by_signal_loss": {
+        "SHORT": 5
+      },
+      "by_outcome": {
+        "MAX_HOLD": 9,
+        "STOP_LOSS": 4,
+        "SESSION_END": 4,
+        "TAKE_PROFIT": 2
+      },
+      "loss_details": [
+        {
+          "date": "2026-06-04",
+          "signal": "SHORT",
+          "style": "with_macro_and_subtrend",
+          "news_score": -25.04,
+          "outcome": "MAX_HOLD",
+          "pnl_pct": -0.021,
+          "poll_hour": 8,
+          "subtrends_summary": "1h \u2193 (-0.65%) \u00b7 4h \u2193 (-1.16%) \u00b7 24h \u2191 (+0.46%)",
+          "macro": "downtrend"
+        },
+        {
+          "date": "2026-06-07",
+          "signal": "SHORT",
+          "style": "with_macro_and_subtrend",
+          "news_score": -1.0,
+          "outcome": "STOP_LOSS",
+          "pnl_pct": -1.165,
+          "poll_hour": 16,
+          "subtrends_summary": "1h \u2191 (+0.31%) \u00b7 4h \u2193 (-0.85%) \u00b7 24h \u2191 (+2.15%)",
+          "macro": "downtrend"
+        },
+        {
+          "date": "2026-06-10",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -8.12,
+          "outcome": "STOP_LOSS",
+          "pnl_pct": -0.873,
+          "poll_hour": 8,
+          "subtrends_summary": "1h \u2191 (+0.36%) \u00b7 4h \u2192 (+0.22%) \u00b7 24h \u2193 (-0.38%)",
+          "macro": "downtrend"
+        },
+        {
+          "date": "2026-06-17",
+          "signal": "SHORT",
+          "style": "with_macro_and_subtrend",
+          "news_score": -13.8,
+          "outcome": "STOP_LOSS",
+          "pnl_pct": -0.745,
+          "poll_hour": 8,
+          "subtrends_summary": "1h \u2192 (-0.12%) \u00b7 4h \u2193 (-0.49%) \u00b7 24h \u2193 (-0.26%)",
+          "macro": "downtrend"
+        },
+        {
+          "date": "2026-06-19",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -3.56,
+          "outcome": "STOP_LOSS",
+          "pnl_pct": -0.727,
+          "poll_hour": 12,
+          "subtrends_summary": "1h \u2192 (+0.17%) \u00b7 4h \u2192 (+0.01%) \u00b7 24h \u2193 (-0.58%)",
+          "macro": "downtrend"
+        }
+      ],
+      "win_details": [
+        {
+          "date": "2026-06-01",
+          "signal": "SHORT",
+          "style": "with_macro_and_subtrend",
+          "news_score": -10.24,
+          "pnl_pct": 1.874
+        },
+        {
+          "date": "2026-06-03",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -16.8,
+          "pnl_pct": 3.274
+        },
+        {
+          "date": "2026-06-05",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -18.36,
+          "pnl_pct": 2.235
+        },
+        {
+          "date": "2026-06-06",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -12.24,
+          "pnl_pct": 0.481
+        },
+        {
+          "date": "2026-06-09",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -15.8,
+          "pnl_pct": 3.198
+        },
+        {
+          "date": "2026-06-13",
+          "signal": "LONG",
+          "style": "with_subtrend",
+          "news_score": 2.12,
+          "pnl_pct": 0.698
+        },
+        {
+          "date": "2026-06-14",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -2.56,
+          "pnl_pct": 0.66
+        },
+        {
+          "date": "2026-06-15",
+          "signal": "LONG",
+          "style": "with_subtrend",
+          "news_score": 3.68,
+          "pnl_pct": 0.118
+        },
+        {
+          "date": "2026-06-20",
+          "signal": "LONG",
+          "style": "with_subtrend",
+          "news_score": 1.12,
+          "pnl_pct": 0.198
+        },
+        {
+          "date": "2026-06-21",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -3.56,
+          "pnl_pct": 1.358
+        },
+        {
+          "date": "2026-06-22",
+          "signal": "LONG",
+          "style": "with_subtrend",
+          "news_score": 4.68,
+          "pnl_pct": 0.33
+        },
+        {
+          "date": "2026-06-23",
+          "signal": "SHORT",
+          "style": "with_macro_and_subtrend",
+          "news_score": -8.68,
+          "pnl_pct": 0.663
+        },
+        {
+          "date": "2026-06-24",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -5.56,
+          "pnl_pct": 2.717
+        },
+        {
+          "date": "2026-06-26",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -5.56,
+          "pnl_pct": 1.428
+        }
+      ],
+      "recommendations": [
+        "SHORT macro_correction fades need |news_score| >= 3 when 24h is rallying.",
+        "Avoid entries after 14:00 UTC \u2014 1 losses from afternoon polls.",
+        "Best wins: 2026-06-03 SHORT macro_correction (+3.27%), 2026-06-09 SHORT macro_correction (+3.20%), 2026-06-24 SHORT macro_correction (+2.72%), 2026-06-05 SHORT macro_correction (+2.23%), 2026-06-01 SHORT with_macro_and_subtrend (+1.87%)"
+      ]
+    },
+    "profit_stats": {
+      "trades": 19,
+      "wins": 14,
+      "losses": 5,
+      "win_rate": 0.737,
+      "profit_factor": 5.45,
+      "profit_ratio": 1.95,
+      "avg_win_pct": 1.374,
+      "avg_loss_pct": 0.706,
+      "expectancy_pct": 0.826,
+      "gross_profit_pct": 19.232,
+      "gross_loss_pct": 3.531,
+      "outcomes": {
+        "MAX_HOLD": 9,
+        "STOP_LOSS": 4,
+        "TAKE_PROFIT": 2,
+        "SESSION_END": 4
+      }
+    },
+    "daily": [
+      {
+        "date": "2026-06-01",
+        "weekday": "Mon",
+        "signal": "SHORT",
+        "confidence": 95,
+        "trade_style": "with_macro_and_subtrend",
+        "news_score": -10.24,
+        "poll_hour": 8,
+        "outcome": "MAX_HOLD",
+        "pnl_pct": 1.874,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -3.08,
+        "buy_hold_pct": -3.083,
+        "subtrends": "1h \u2193 (-0.46%) \u00b7 4h \u2193 (-1.30%) \u00b7 24h \u2193 (-1.46%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-01T08:00:00+00:00",
+            "news_count": 35,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -10.24
+          },
+          {
+            "poll_utc": "2026-06-01T12:00:00+00:00",
+            "news_count": 35,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -10.24
+          },
+          {
+            "poll_utc": "2026-06-01T16:00:00+00:00",
+            "news_count": 35,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -10.24
+          },
+          {
+            "poll_utc": "2026-06-01T20:00:00+00:00",
+            "news_count": 35,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -10.24
+          }
+        ]
+      },
+      {
+        "date": "2026-06-02",
+        "weekday": "Tue",
+        "signal": "FLAT",
+        "confidence": 0,
+        "trade_style": "flat",
+        "news_score": 0.0,
+        "poll_hour": null,
+        "outcome": "NO_TRADE",
+        "pnl_pct": 0.0,
+        "win": false,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -6.53,
+        "buy_hold_pct": -6.528,
+        "subtrends": null,
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-02T08:00:00+00:00",
+            "news_count": 42,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -30.16
+          },
+          {
+            "poll_utc": "2026-06-02T12:00:00+00:00",
+            "news_count": 42,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -30.16
+          },
+          {
+            "poll_utc": "2026-06-02T16:00:00+00:00",
+            "news_count": 42,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -30.16
+          },
+          {
+            "poll_utc": "2026-06-02T20:00:00+00:00",
+            "news_count": 42,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -30.16
+          }
+        ]
+      },
+      {
+        "date": "2026-06-03",
+        "weekday": "Wed",
+        "signal": "SHORT",
+        "confidence": 85,
+        "trade_style": "macro_correction",
+        "news_score": -16.8,
+        "poll_hour": 8,
+        "outcome": "MAX_HOLD",
+        "pnl_pct": 3.274,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -3.93,
+        "buy_hold_pct": -3.928,
+        "subtrends": "1h \u2191 (+0.37%) \u00b7 4h \u2191 (+2.09%) \u00b7 24h \u2191 (+0.43%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-03T08:00:00+00:00",
+            "news_count": 50,
+            "signal": "SHORT",
+            "confidence": 85,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -16.8
+          },
+          {
+            "poll_utc": "2026-06-03T12:00:00+00:00",
+            "news_count": 50,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -16.8
+          },
+          {
+            "poll_utc": "2026-06-03T16:00:00+00:00",
+            "news_count": 50,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -16.8
+          },
+          {
+            "poll_utc": "2026-06-03T20:00:00+00:00",
+            "news_count": 50,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -16.8
+          }
+        ]
+      },
+      {
+        "date": "2026-06-04",
+        "weekday": "Thu",
+        "signal": "SHORT",
+        "confidence": 95,
+        "trade_style": "with_macro_and_subtrend",
+        "news_score": -25.04,
+        "poll_hour": 8,
+        "outcome": "MAX_HOLD",
+        "pnl_pct": -0.021,
+        "win": false,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -0.39,
+        "buy_hold_pct": -0.391,
+        "subtrends": "1h \u2193 (-0.65%) \u00b7 4h \u2193 (-1.16%) \u00b7 24h \u2191 (+0.46%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-04T08:00:00+00:00",
+            "news_count": 39,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -25.04
+          },
+          {
+            "poll_utc": "2026-06-04T12:00:00+00:00",
+            "news_count": 39,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -25.04
+          },
+          {
+            "poll_utc": "2026-06-04T16:00:00+00:00",
+            "news_count": 39,
+            "signal": "SHORT",
+            "confidence": 85,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -25.04
+          },
+          {
+            "poll_utc": "2026-06-04T20:00:00+00:00",
+            "news_count": 39,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -25.04
+          }
+        ]
+      },
+      {
+        "date": "2026-06-05",
+        "weekday": "Fri",
+        "signal": "SHORT",
+        "confidence": 85,
+        "trade_style": "macro_correction",
+        "news_score": -18.36,
+        "poll_hour": 8,
+        "outcome": "MAX_HOLD",
+        "pnl_pct": 2.235,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -4.3,
+        "buy_hold_pct": -4.304,
+        "subtrends": "1h \u2191 (+1.90%) \u00b7 4h \u2191 (+0.63%) \u00b7 24h \u2193 (-0.49%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-05T08:00:00+00:00",
+            "news_count": 51,
+            "signal": "SHORT",
+            "confidence": 85,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -18.36
+          },
+          {
+            "poll_utc": "2026-06-05T12:00:00+00:00",
+            "news_count": 51,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -18.36
+          },
+          {
+            "poll_utc": "2026-06-05T16:00:00+00:00",
+            "news_count": 51,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -18.36
+          },
+          {
+            "poll_utc": "2026-06-05T20:00:00+00:00",
+            "news_count": 51,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -18.36
+          }
+        ]
+      },
+      {
+        "date": "2026-06-06",
+        "weekday": "Sat",
+        "signal": "SHORT",
+        "confidence": 85,
+        "trade_style": "macro_correction",
+        "news_score": -12.24,
+        "poll_hour": 8,
+        "outcome": "MAX_HOLD",
+        "pnl_pct": 0.481,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -0.34,
+        "buy_hold_pct": -0.336,
+        "subtrends": "1h \u2191 (+0.36%) \u00b7 4h \u2191 (+0.50%) \u00b7 24h \u2193 (-0.44%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-06T08:00:00+00:00",
+            "news_count": 16,
+            "signal": "SHORT",
+            "confidence": 85,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -12.24
+          },
+          {
+            "poll_utc": "2026-06-06T12:00:00+00:00",
+            "news_count": 16,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -12.24
+          },
+          {
+            "poll_utc": "2026-06-06T16:00:00+00:00",
+            "news_count": 16,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -12.24
+          },
+          {
+            "poll_utc": "2026-06-06T20:00:00+00:00",
+            "news_count": 16,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -12.24
+          }
+        ]
+      },
+      {
+        "date": "2026-06-07",
+        "weekday": "Sun",
+        "signal": "SHORT",
+        "confidence": 64,
+        "trade_style": "with_macro_and_subtrend",
+        "news_score": -1.0,
+        "poll_hour": 16,
+        "outcome": "STOP_LOSS",
+        "pnl_pct": -1.165,
+        "win": false,
+        "macro_phase": "downtrend",
+        "day_direction": "up",
+        "day_move_pct": 4.03,
+        "buy_hold_pct": 4.031,
+        "subtrends": "1h \u2191 (+0.31%) \u00b7 4h \u2193 (-0.85%) \u00b7 24h \u2191 (+2.15%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-07T08:00:00+00:00",
+            "news_count": 6,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": -1.0
+          },
+          {
+            "poll_utc": "2026-06-07T12:00:00+00:00",
+            "news_count": 6,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": -1.0
+          },
+          {
+            "poll_utc": "2026-06-07T16:00:00+00:00",
+            "news_count": 6,
+            "signal": "SHORT",
+            "confidence": 64,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -1.0
+          },
+          {
+            "poll_utc": "2026-06-07T20:00:00+00:00",
+            "news_count": 6,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -1.0
+          }
+        ]
+      },
+      {
+        "date": "2026-06-08",
+        "weekday": "Mon",
+        "signal": "FLAT",
+        "confidence": 0,
+        "trade_style": "flat",
+        "news_score": 0.0,
+        "poll_hour": null,
+        "outcome": "NO_TRADE",
+        "pnl_pct": 0.0,
+        "win": false,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -0.37,
+        "buy_hold_pct": -0.366,
+        "subtrends": null,
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-08T08:00:00+00:00",
+            "news_count": 27,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 4.8
+          },
+          {
+            "poll_utc": "2026-06-08T12:00:00+00:00",
+            "news_count": 27,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 4.8
+          },
+          {
+            "poll_utc": "2026-06-08T16:00:00+00:00",
+            "news_count": 27,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 4.8
+          },
+          {
+            "poll_utc": "2026-06-08T20:00:00+00:00",
+            "news_count": 27,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 4.8
+          }
+        ]
+      },
+      {
+        "date": "2026-06-09",
+        "weekday": "Tue",
+        "signal": "SHORT",
+        "confidence": 85,
+        "trade_style": "macro_correction",
+        "news_score": -15.8,
+        "poll_hour": 8,
+        "outcome": "TAKE_PROFIT",
+        "pnl_pct": 3.198,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -2.16,
+        "buy_hold_pct": -2.164,
+        "subtrends": "1h \u2192 (-0.17%) \u00b7 4h \u2191 (+0.50%) \u00b7 24h \u2191 (+0.98%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-09T08:00:00+00:00",
+            "news_count": 51,
+            "signal": "SHORT",
+            "confidence": 85,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -15.8
+          },
+          {
+            "poll_utc": "2026-06-09T12:00:00+00:00",
+            "news_count": 51,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -15.8
+          },
+          {
+            "poll_utc": "2026-06-09T16:00:00+00:00",
+            "news_count": 53,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -15.8
+          },
+          {
+            "poll_utc": "2026-06-09T20:00:00+00:00",
+            "news_count": 55,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -16.8
+          }
+        ]
+      },
+      {
+        "date": "2026-06-10",
+        "weekday": "Wed",
+        "signal": "SHORT",
+        "confidence": 95,
+        "trade_style": "macro_correction",
+        "news_score": -8.12,
+        "poll_hour": 8,
+        "outcome": "STOP_LOSS",
+        "pnl_pct": -0.873,
+        "win": false,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -0.4,
+        "buy_hold_pct": -0.4,
+        "subtrends": "1h \u2191 (+0.36%) \u00b7 4h \u2192 (+0.22%) \u00b7 24h \u2193 (-0.38%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-10T08:00:00+00:00",
+            "news_count": 24,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -8.12
+          },
+          {
+            "poll_utc": "2026-06-10T12:00:00+00:00",
+            "news_count": 24,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -8.12
+          },
+          {
+            "poll_utc": "2026-06-10T16:00:00+00:00",
+            "news_count": 24,
+            "signal": "SHORT",
+            "confidence": 85,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -8.12
+          },
+          {
+            "poll_utc": "2026-06-10T20:00:00+00:00",
+            "news_count": 24,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -8.12
+          }
+        ]
+      },
+      {
+        "date": "2026-06-11",
+        "weekday": "Thu",
+        "signal": "FLAT",
+        "confidence": 0,
+        "trade_style": "flat",
+        "news_score": 0.0,
+        "poll_hour": null,
+        "outcome": "NO_TRADE",
+        "pnl_pct": 0.0,
+        "win": false,
+        "macro_phase": "downtrend",
+        "day_direction": "up",
+        "day_move_pct": 3.42,
+        "buy_hold_pct": 3.417,
+        "subtrends": null,
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-11T08:00:00+00:00",
+            "news_count": 30,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 1.56
+          },
+          {
+            "poll_utc": "2026-06-11T12:00:00+00:00",
+            "news_count": 30,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_subtrend",
+            "news_score": 1.56
+          },
+          {
+            "poll_utc": "2026-06-11T16:00:00+00:00",
+            "news_count": 30,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 1.56
+          },
+          {
+            "poll_utc": "2026-06-11T20:00:00+00:00",
+            "news_count": 30,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_subtrend",
+            "news_score": 1.56
+          }
+        ]
+      },
+      {
+        "date": "2026-06-12",
+        "weekday": "Fri",
+        "signal": "FLAT",
+        "confidence": 0,
+        "trade_style": "flat",
+        "news_score": 0.0,
+        "poll_hour": null,
+        "outcome": "NO_TRADE",
+        "pnl_pct": 0.0,
+        "win": false,
+        "macro_phase": "downtrend",
+        "day_direction": "flat",
+        "day_move_pct": -0.05,
+        "buy_hold_pct": -0.054,
+        "subtrends": null,
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-12T08:00:00+00:00",
+            "news_count": 45,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 0.12
+          },
+          {
+            "poll_utc": "2026-06-12T12:00:00+00:00",
+            "news_count": 45,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 0.12
+          },
+          {
+            "poll_utc": "2026-06-12T16:00:00+00:00",
+            "news_count": 45,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 0.12
+          },
+          {
+            "poll_utc": "2026-06-12T20:00:00+00:00",
+            "news_count": 48,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 0.12
+          }
+        ]
+      },
+      {
+        "date": "2026-06-13",
+        "weekday": "Sat",
+        "signal": "LONG",
+        "confidence": 77,
+        "trade_style": "with_subtrend",
+        "news_score": 2.12,
+        "poll_hour": 8,
+        "outcome": "MAX_HOLD",
+        "pnl_pct": 0.698,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "up",
+        "day_move_pct": 1.41,
+        "buy_hold_pct": 1.409,
+        "subtrends": "1h \u2192 (+0.18%) \u00b7 4h \u2191 (+0.49%) \u00b7 24h \u2191 (+0.40%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-13T08:00:00+00:00",
+            "news_count": 17,
+            "signal": "LONG",
+            "confidence": 77,
+            "timeframe": "4h",
+            "trade_style": "with_subtrend",
+            "news_score": 2.12
+          },
+          {
+            "poll_utc": "2026-06-13T12:00:00+00:00",
+            "news_count": 18,
+            "signal": "LONG",
+            "confidence": 52,
+            "timeframe": "15m",
+            "trade_style": "counter_trend_scalp",
+            "news_score": 2.12
+          },
+          {
+            "poll_utc": "2026-06-13T16:00:00+00:00",
+            "news_count": 20,
+            "signal": "LONG",
+            "confidence": 77,
+            "timeframe": "4h",
+            "trade_style": "with_subtrend",
+            "news_score": 2.12
+          },
+          {
+            "poll_utc": "2026-06-13T20:00:00+00:00",
+            "news_count": 21,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "counter_trend_scalp",
+            "news_score": 2.12
+          }
+        ]
+      },
+      {
+        "date": "2026-06-14",
+        "weekday": "Sun",
+        "signal": "SHORT",
+        "confidence": 78,
+        "trade_style": "macro_correction",
+        "news_score": -2.56,
+        "poll_hour": 8,
+        "outcome": "MAX_HOLD",
+        "pnl_pct": 0.66,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "up",
+        "day_move_pct": 2.02,
+        "buy_hold_pct": 2.019,
+        "subtrends": "1h \u2192 (+0.22%) \u00b7 4h \u2192 (-0.18%) \u00b7 24h \u2192 (-0.20%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-14T08:00:00+00:00",
+            "news_count": 9,
+            "signal": "SHORT",
+            "confidence": 78,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -2.56
+          },
+          {
+            "poll_utc": "2026-06-14T12:00:00+00:00",
+            "news_count": 9,
+            "signal": "SHORT",
+            "confidence": 78,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -2.56
+          },
+          {
+            "poll_utc": "2026-06-14T16:00:00+00:00",
+            "news_count": 9,
+            "signal": "SHORT",
+            "confidence": 81,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -2.56
+          },
+          {
+            "poll_utc": "2026-06-14T20:00:00+00:00",
+            "news_count": 9,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -2.56
+          }
+        ]
+      },
+      {
+        "date": "2026-06-15",
+        "weekday": "Mon",
+        "signal": "LONG",
+        "confidence": 90,
+        "trade_style": "with_subtrend",
+        "news_score": 3.68,
+        "poll_hour": 12,
+        "outcome": "SESSION_END",
+        "pnl_pct": 0.118,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "up",
+        "day_move_pct": 0.87,
+        "buy_hold_pct": 0.869,
+        "subtrends": "1h \u2191 (+0.48%) \u00b7 4h \u2191 (+0.85%) \u00b7 24h \u2191 (+0.91%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-15T08:00:00+00:00",
+            "news_count": 28,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 3.68
+          },
+          {
+            "poll_utc": "2026-06-15T12:00:00+00:00",
+            "news_count": 28,
+            "signal": "LONG",
+            "confidence": 90,
+            "timeframe": "4h",
+            "trade_style": "with_subtrend",
+            "news_score": 3.68
+          },
+          {
+            "poll_utc": "2026-06-15T16:00:00+00:00",
+            "news_count": 28,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_subtrend",
+            "news_score": 3.68
+          },
+          {
+            "poll_utc": "2026-06-15T20:00:00+00:00",
+            "news_count": 29,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 3.68
+          }
+        ]
+      },
+      {
+        "date": "2026-06-16",
+        "weekday": "Tue",
+        "signal": "FLAT",
+        "confidence": 0,
+        "trade_style": "flat",
+        "news_score": 0.0,
+        "poll_hour": null,
+        "outcome": "NO_TRADE",
+        "pnl_pct": 0.0,
+        "win": false,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -0.98,
+        "buy_hold_pct": -0.978,
+        "subtrends": null,
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-16T08:00:00+00:00",
+            "news_count": 39,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 6.92
+          },
+          {
+            "poll_utc": "2026-06-16T12:00:00+00:00",
+            "news_count": 42,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 8.48
+          },
+          {
+            "poll_utc": "2026-06-16T16:00:00+00:00",
+            "news_count": 44,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 5.92
+          },
+          {
+            "poll_utc": "2026-06-16T20:00:00+00:00",
+            "news_count": 47,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 5.92
+          }
+        ]
+      },
+      {
+        "date": "2026-06-17",
+        "weekday": "Wed",
+        "signal": "SHORT",
+        "confidence": 95,
+        "trade_style": "with_macro_and_subtrend",
+        "news_score": -13.8,
+        "poll_hour": 8,
+        "outcome": "STOP_LOSS",
+        "pnl_pct": -0.745,
+        "win": false,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -1.78,
+        "buy_hold_pct": -1.784,
+        "subtrends": "1h \u2192 (-0.12%) \u00b7 4h \u2193 (-0.49%) \u00b7 24h \u2193 (-0.26%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-17T08:00:00+00:00",
+            "news_count": 41,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -13.8
+          },
+          {
+            "poll_utc": "2026-06-17T12:00:00+00:00",
+            "news_count": 46,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -13.8
+          },
+          {
+            "poll_utc": "2026-06-17T16:00:00+00:00",
+            "news_count": 50,
+            "signal": "SHORT",
+            "confidence": 85,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -13.8
+          },
+          {
+            "poll_utc": "2026-06-17T20:00:00+00:00",
+            "news_count": 59,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -14.8
+          }
+        ]
+      },
+      {
+        "date": "2026-06-18",
+        "weekday": "Thu",
+        "signal": "FLAT",
+        "confidence": 0,
+        "trade_style": "flat",
+        "news_score": 0.0,
+        "poll_hour": null,
+        "outcome": "NO_TRADE",
+        "pnl_pct": 0.0,
+        "win": false,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -2.44,
+        "buy_hold_pct": -2.443,
+        "subtrends": null,
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-18T08:00:00+00:00",
+            "news_count": 11,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 1.56
+          },
+          {
+            "poll_utc": "2026-06-18T12:00:00+00:00",
+            "news_count": 26,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 0.56
+          },
+          {
+            "poll_utc": "2026-06-18T16:00:00+00:00",
+            "news_count": 37,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 0.56
+          },
+          {
+            "poll_utc": "2026-06-18T20:00:00+00:00",
+            "news_count": 55,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -6.56
+          }
+        ]
+      },
+      {
+        "date": "2026-06-19",
+        "weekday": "Fri",
+        "signal": "SHORT",
+        "confidence": 86,
+        "trade_style": "macro_correction",
+        "news_score": -3.56,
+        "poll_hour": 12,
+        "outcome": "STOP_LOSS",
+        "pnl_pct": -0.727,
+        "win": false,
+        "macro_phase": "downtrend",
+        "day_direction": "up",
+        "day_move_pct": 0.95,
+        "buy_hold_pct": 0.952,
+        "subtrends": "1h \u2192 (+0.17%) \u00b7 4h \u2192 (+0.01%) \u00b7 24h \u2193 (-0.58%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-19T08:00:00+00:00",
+            "news_count": 3,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 1.56
+          },
+          {
+            "poll_utc": "2026-06-19T12:00:00+00:00",
+            "news_count": 18,
+            "signal": "SHORT",
+            "confidence": 86,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -3.56
+          },
+          {
+            "poll_utc": "2026-06-19T16:00:00+00:00",
+            "news_count": 35,
+            "signal": "SHORT",
+            "confidence": 85,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -9.68
+          },
+          {
+            "poll_utc": "2026-06-19T20:00:00+00:00",
+            "news_count": 57,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -32.72
+          }
+        ]
+      },
+      {
+        "date": "2026-06-20",
+        "weekday": "Sat",
+        "signal": "LONG",
+        "confidence": 69,
+        "trade_style": "with_subtrend",
+        "news_score": 1.12,
+        "poll_hour": 16,
+        "outcome": "SESSION_END",
+        "pnl_pct": 0.198,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "up",
+        "day_move_pct": 1.19,
+        "buy_hold_pct": 1.19,
+        "subtrends": "1h \u2191 (+0.32%) \u00b7 4h \u2191 (+0.74%) \u00b7 24h \u2191 (+0.97%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-20T08:00:00+00:00",
+            "news_count": 3,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 1.56
+          },
+          {
+            "poll_utc": "2026-06-20T12:00:00+00:00",
+            "news_count": 8,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 3.12
+          },
+          {
+            "poll_utc": "2026-06-20T16:00:00+00:00",
+            "news_count": 32,
+            "signal": "LONG",
+            "confidence": 69,
+            "timeframe": "4h",
+            "trade_style": "with_subtrend",
+            "news_score": 1.12
+          },
+          {
+            "poll_utc": "2026-06-20T20:00:00+00:00",
+            "news_count": 47,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -6.56
+          }
+        ]
+      },
+      {
+        "date": "2026-06-21",
+        "weekday": "Sun",
+        "signal": "SHORT",
+        "confidence": 86,
+        "trade_style": "macro_correction",
+        "news_score": -3.56,
+        "poll_hour": 12,
+        "outcome": "SESSION_END",
+        "pnl_pct": 1.358,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -1.56,
+        "buy_hold_pct": -1.564,
+        "subtrends": "1h \u2193 (-0.31%) \u00b7 4h \u2192 (-0.05%) \u00b7 24h \u2192 (-0.19%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-21T08:00:00+00:00",
+            "news_count": 1,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 0.0
+          },
+          {
+            "poll_utc": "2026-06-21T12:00:00+00:00",
+            "news_count": 12,
+            "signal": "SHORT",
+            "confidence": 86,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -3.56
+          },
+          {
+            "poll_utc": "2026-06-21T16:00:00+00:00",
+            "news_count": 30,
+            "signal": "SHORT",
+            "confidence": 90,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -4.0
+          },
+          {
+            "poll_utc": "2026-06-21T20:00:00+00:00",
+            "news_count": 41,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -5.0
+          }
+        ]
+      },
+      {
+        "date": "2026-06-22",
+        "weekday": "Mon",
+        "signal": "LONG",
+        "confidence": 95,
+        "trade_style": "with_subtrend",
+        "news_score": 4.68,
+        "poll_hour": 8,
+        "outcome": "MAX_HOLD",
+        "pnl_pct": 0.33,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "up",
+        "day_move_pct": 1.13,
+        "buy_hold_pct": 1.131,
+        "subtrends": "1h \u2191 (+0.35%) \u00b7 4h \u2191 (+0.38%) \u00b7 24h \u2191 (+0.50%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-22T08:00:00+00:00",
+            "news_count": 2,
+            "signal": "LONG",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "with_subtrend",
+            "news_score": 4.68
+          },
+          {
+            "poll_utc": "2026-06-22T12:00:00+00:00",
+            "news_count": 14,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": -0.32
+          },
+          {
+            "poll_utc": "2026-06-22T16:00:00+00:00",
+            "news_count": 41,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_subtrend",
+            "news_score": 1.8
+          },
+          {
+            "poll_utc": "2026-06-22T20:00:00+00:00",
+            "news_count": 67,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -1.2
+          }
+        ]
+      },
+      {
+        "date": "2026-06-23",
+        "weekday": "Tue",
+        "signal": "SHORT",
+        "confidence": 95,
+        "trade_style": "with_macro_and_subtrend",
+        "news_score": -8.68,
+        "poll_hour": 8,
+        "outcome": "MAX_HOLD",
+        "pnl_pct": 0.663,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -2.02,
+        "buy_hold_pct": -2.016,
+        "subtrends": "1h \u2192 (-0.09%) \u00b7 4h \u2193 (-1.85%) \u00b7 24h \u2193 (-1.99%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-23T08:00:00+00:00",
+            "news_count": 20,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -8.68
+          },
+          {
+            "poll_utc": "2026-06-23T12:00:00+00:00",
+            "news_count": 15,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -2.56
+          },
+          {
+            "poll_utc": "2026-06-23T16:00:00+00:00",
+            "news_count": 37,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -9.68
+          },
+          {
+            "poll_utc": "2026-06-23T20:00:00+00:00",
+            "news_count": 63,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -8.56
+          }
+        ]
+      },
+      {
+        "date": "2026-06-24",
+        "weekday": "Wed",
+        "signal": "SHORT",
+        "confidence": 85,
+        "trade_style": "macro_correction",
+        "news_score": -5.56,
+        "poll_hour": 12,
+        "outcome": "TAKE_PROFIT",
+        "pnl_pct": 2.717,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -2.65,
+        "buy_hold_pct": -2.653,
+        "subtrends": "1h \u2191 (+0.77%) \u00b7 4h \u2191 (+0.44%) \u00b7 24h \u2192 (-0.16%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-24T08:00:00+00:00",
+            "news_count": 1,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 0.0
+          },
+          {
+            "poll_utc": "2026-06-24T12:00:00+00:00",
+            "news_count": 12,
+            "signal": "SHORT",
+            "confidence": 85,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -5.56
+          },
+          {
+            "poll_utc": "2026-06-24T16:00:00+00:00",
+            "news_count": 35,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -20.36
+          },
+          {
+            "poll_utc": "2026-06-24T20:00:00+00:00",
+            "news_count": 65,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -32.6
+          }
+        ]
+      },
+      {
+        "date": "2026-06-25",
+        "weekday": "Thu",
+        "signal": "FLAT",
+        "confidence": 0,
+        "trade_style": "flat",
+        "news_score": 0.0,
+        "poll_hour": null,
+        "outcome": "NO_TRADE",
+        "pnl_pct": 0.0,
+        "win": false,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -2.11,
+        "buy_hold_pct": -2.106,
+        "subtrends": null,
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-25T08:00:00+00:00",
+            "news_count": 2,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 0.0
+          },
+          {
+            "poll_utc": "2026-06-25T12:00:00+00:00",
+            "news_count": 4,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 1.56
+          },
+          {
+            "poll_utc": "2026-06-25T16:00:00+00:00",
+            "news_count": 19,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "15m",
+            "trade_style": "flat",
+            "news_score": 2.12
+          },
+          {
+            "poll_utc": "2026-06-25T20:00:00+00:00",
+            "news_count": 50,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -6.0
+          }
+        ]
+      },
+      {
+        "date": "2026-06-26",
+        "weekday": "Fri",
+        "signal": "SHORT",
+        "confidence": 85,
+        "trade_style": "macro_correction",
+        "news_score": -5.56,
+        "poll_hour": 8,
+        "outcome": "SESSION_END",
+        "pnl_pct": 1.428,
+        "win": true,
+        "macro_phase": "downtrend",
+        "day_direction": "down",
+        "day_move_pct": -0.22,
+        "buy_hold_pct": -0.216,
+        "subtrends": "1h \u2191 (+0.34%) \u00b7 4h \u2191 (+0.83%) \u00b7 24h \u2191 (+1.45%)",
+        "poll_log": [
+          {
+            "poll_utc": "2026-06-26T08:00:00+00:00",
+            "news_count": 14,
+            "signal": "SHORT",
+            "confidence": 85,
+            "timeframe": "4h",
+            "trade_style": "macro_correction",
+            "news_score": -5.56
+          },
+          {
+            "poll_utc": "2026-06-26T12:00:00+00:00",
+            "news_count": 89,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -26.92
+          },
+          {
+            "poll_utc": "2026-06-26T16:00:00+00:00",
+            "news_count": 100,
+            "signal": "SHORT",
+            "confidence": 95,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -34.6
+          },
+          {
+            "poll_utc": "2026-06-26T20:00:00+00:00",
+            "news_count": 100,
+            "signal": "FLAT",
+            "confidence": 40,
+            "timeframe": "4h",
+            "trade_style": "with_macro_and_subtrend",
+            "news_score": -34.6
+          }
+        ]
+      }
+    ]
+  },
+  "adaptive": {
+    "patterns": {
+      "days_total": 26,
+      "trades_taken": 18,
+      "flat_days": 8,
+      "wins": 13,
+      "losses": 5,
+      "win_rate": 0.722,
+      "by_style_win": {
+        "macro_correction": 8,
+        "with_subtrend": 3,
+        "with_macro_and_subtrend": 2
+      },
+      "by_style_loss": {
+        "with_macro_and_subtrend": 3,
+        "macro_correction": 2
+      },
+      "by_signal_win": {
+        "SHORT": 10,
+        "LONG": 3
+      },
+      "by_signal_loss": {
+        "SHORT": 5
+      },
+      "by_outcome": {
+        "MAX_HOLD": 9,
+        "STOP_LOSS": 4,
+        "SESSION_END": 3,
+        "TAKE_PROFIT": 2
+      },
+      "loss_details": [
+        {
+          "date": "2026-06-04",
+          "signal": "SHORT",
+          "style": "with_macro_and_subtrend",
+          "news_score": -25.04,
+          "outcome": "MAX_HOLD",
+          "pnl_pct": -0.021,
+          "poll_hour": 8,
+          "subtrends_summary": "1h \u2193 (-0.65%) \u00b7 4h \u2193 (-1.16%) \u00b7 24h \u2191 (+0.46%)",
+          "macro": "downtrend"
+        },
+        {
+          "date": "2026-06-07",
+          "signal": "SHORT",
+          "style": "with_macro_and_subtrend",
+          "news_score": -1.0,
+          "outcome": "STOP_LOSS",
+          "pnl_pct": -1.165,
+          "poll_hour": 16,
+          "subtrends_summary": "1h \u2191 (+0.31%) \u00b7 4h \u2193 (-0.85%) \u00b7 24h \u2191 (+2.15%)",
+          "macro": "downtrend"
+        },
+        {
+          "date": "2026-06-10",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -8.12,
+          "outcome": "STOP_LOSS",
+          "pnl_pct": -0.873,
+          "poll_hour": 8,
+          "subtrends_summary": "1h \u2191 (+0.36%) \u00b7 4h \u2192 (+0.22%) \u00b7 24h \u2193 (-0.38%)",
+          "macro": "downtrend"
+        },
+        {
+          "date": "2026-06-17",
+          "signal": "SHORT",
+          "style": "with_macro_and_subtrend",
+          "news_score": -13.8,
+          "outcome": "STOP_LOSS",
+          "pnl_pct": -0.745,
+          "poll_hour": 8,
+          "subtrends_summary": "1h \u2192 (-0.12%) \u00b7 4h \u2193 (-0.49%) \u00b7 24h \u2193 (-0.26%)",
+          "macro": "downtrend"
+        },
+        {
+          "date": "2026-06-19",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -3.56,
+          "outcome": "STOP_LOSS",
+          "pnl_pct": -0.727,
+          "poll_hour": 12,
+          "subtrends_summary": "1h \u2192 (+0.17%) \u00b7 4h \u2192 (+0.01%) \u00b7 24h \u2193 (-0.58%)",
+          "macro": "downtrend"
+        }
+      ],
+      "win_details": [
+        {
+          "date": "2026-06-01",
+          "signal": "SHORT",
+          "style": "with_macro_and_subtrend",
+          "news_score": -10.24,
+          "pnl_pct": 1.874
+        },
+        {
+          "date": "2026-06-03",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -16.8,
+          "pnl_pct": 3.274
+        },
+        {
+          "date": "2026-06-05",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -18.36,
+          "pnl_pct": 2.235
+        },
+        {
+          "date": "2026-06-06",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -12.24,
+          "pnl_pct": 0.481
+        },
+        {
+          "date": "2026-06-09",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -15.8,
+          "pnl_pct": 3.198
+        },
+        {
+          "date": "2026-06-13",
+          "signal": "LONG",
+          "style": "with_subtrend",
+          "news_score": 2.12,
+          "pnl_pct": 0.698
+        },
+        {
+          "date": "2026-06-14",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -2.56,
+          "pnl_pct": 0.66
+        },
+        {
+          "date": "2026-06-15",
+          "signal": "LONG",
+          "style": "with_subtrend",
+          "news_score": 3.68,
+          "pnl_pct": 0.118
+        },
+        {
+          "date": "2026-06-21",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -3.56,
+          "pnl_pct": 1.358
+        },
+        {
+          "date": "2026-06-22",
+          "signal": "LONG",
+          "style": "with_subtrend",
+          "news_score": 4.68,
+          "pnl_pct": 0.33
+        },
+        {
+          "date": "2026-06-23",
+          "signal": "SHORT",
+          "style": "with_macro_and_subtrend",
+          "news_score": -8.68,
+          "pnl_pct": 0.663
+        },
+        {
+          "date": "2026-06-24",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -5.56,
+          "pnl_pct": 2.717
+        },
+        {
+          "date": "2026-06-26",
+          "signal": "SHORT",
+          "style": "macro_correction",
+          "news_score": -5.56,
+          "pnl_pct": 1.415
+        }
+      ],
+      "recommendations": [
+        "SHORT macro_correction fades need |news_score| >= 3 when 24h is rallying.",
+        "Avoid entries after 14:00 UTC \u2014 1 losses from afternoon polls.",
+        "Best wins: 2026-06-03 SHORT macro_correction (+3.27%), 2026-06-09 SHORT macro_correction (+3.20%), 2026-06-24 SHORT macro_correction (+2.72%), 2026-06-05 SHORT macro_correction (+2.23%), 2026-06-01 SHORT with_macro_and_subtrend (+1.87%)"
+      ]
+    },
+    "profit_stats": {
+      "trades": 18,
+      "wins": 13,
+      "losses": 5,
+      "win_rate": 0.722,
+      "profit_factor": 5.39,
+      "profit_ratio": 2.07,
+      "avg_win_pct": 1.463,
+      "avg_loss_pct": 0.706,
+      "expectancy_pct": 0.861,
+      "gross_profit_pct": 19.021,
+      "gross_loss_pct": 3.531,
+      "outcomes": {
+        "MAX_HOLD": 9,
+        "STOP_LOSS": 4,
+        "TAKE_PROFIT": 2,
+        "SESSION_END": 3
+      }
+    },
+    "instincts": [
+      {
+        "id": "late_poll_stop_loss",
+        "description": "Stop loss on 16:00 UTC entry \u2014 prefer morning polls",
+        "loss_count": 2,
+        "win_count_when_bypassed": 0,
+        "action": "flat",
+        "created": "2026-06-26T12:29:07.981190+00:00"
+      }
+    ]
+  }
+}

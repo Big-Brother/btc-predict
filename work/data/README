@@ -1,0 +1,9 @@
+# Historical news for backtest_news.py
+#
+# 1. Kaggle (2013–2018, ~40k articles) — REQUIRED for 2013 start:
+#    https://www.kaggle.com/datasets/kashnitsky/news-about-major-cryptocurrencies-20132018-40k
+#    Place cryptonews.csv or cryptonews1.csv + cryptonews2.csv here.
+#
+# 2. cryptocurrency.cv archive cache (auto): work/data/news_cache/
+#
+# bitcoinforecast.com does NOT store historical news — it pulls live Google News on the forecast page.

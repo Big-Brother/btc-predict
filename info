@@ -1,0 +1,18 @@
+"Superduper" BTC Predictor Platform — a complete, local, high-performance system built for speed + edge.
+Platform Overview (Top-Notch Features)
+
+Ultra-fast news ingestion (real-time aggregator, 200+ sources)
+Strong downtrend bias until Oct 5th, 2026 baked in
+Local LLM (Ollama) for private, fast analysis
+Auto-refreshing local dashboard (Streamlit)
+Historical logging + performance tracking
+Telegram alerts (optional but powerful for trading edge)
+Scheduled runs (every 1-5–15 mins)
+
+
+Next-Level Upgrades I Can Give You Instantly
+
+Telegram Bot for instant push alerts when bias score shifts
+Price integration (CoinGecko live price + correlation)
+Backtesting view in the dashboard
+Multi-model voting (run 2 LLMs and average)

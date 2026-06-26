@@ -1,0 +1,11 @@
+{
+  "saved_at": "2026-06-26T12:23:05.822541+00:00",
+  "note": "68% June confluence + 100% week Jun22-26",
+  "files": [
+    "signal_engine.py",
+    "news_sentiment.py",
+    "trade_learning.py",
+    "backtest_yesterday.py",
+    "trade_cycle.py"
+  ]
+}

@@ -1,0 +1,28 @@
+# Python
+**/.venv/
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+.Python
+*.egg-info/
+dist/
+build/
+
+# Secrets & local runtime
+.env
+.env.*
+!.env.example
+
+# Generated / personal outputs
+work/latest_analysis.json
+work/open_positions.json
+work/btc_predictions_history.csv
+work/backtest_yesterday.json
+work/backtest_equity.csv
+work/backtest_results.csv
+work/backtest_summary.json
+work/backtest_news_equity.csv
+
+# OS
+.DS_Store
+*.swp

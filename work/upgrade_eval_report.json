@@ -1,0 +1,55 @@
+{
+  "best": {
+    "week": {
+      "version": "best",
+      "signal_mode": "best",
+      "trades": 3,
+      "wins": 2,
+      "losses": 1,
+      "win_rate": 0.6667,
+      "pnl_sum": 0.65
+    },
+    "month": {
+      "version": "best",
+      "signal_mode": "best",
+      "trades": 19,
+      "wins": 13,
+      "losses": 6,
+      "win_rate": 0.6842,
+      "pnl_sum": 14.325
+    }
+  },
+  "upgrade": {
+    "week": {
+      "version": "upgrade",
+      "signal_mode": "best",
+      "trades": 4,
+      "wins": 4,
+      "losses": 0,
+      "win_rate": 1.0,
+      "pnl_sum": 5.229
+    },
+    "month": {
+      "version": "upgrade",
+      "signal_mode": "best",
+      "trades": 20,
+      "wins": 14,
+      "losses": 6,
+      "win_rate": 0.7,
+      "pnl_sum": 14.679
+    }
+  },
+  "hybrid_week": {
+    "version": "upgrade",
+    "signal_mode": "hybrid",
+    "trades": 4,
+    "wins": 4,
+    "losses": 0,
+    "win_rate": 1.0,
+    "pnl_sum": 5.226
+  },
+  "winner": "upgrade",
+  "active": "upgrade",
+  "week_ok": true,
+  "month_ok": true
+}

@@ -1,0 +1,8 @@
+# 1. Installed Ollama
+# 192.168.1.121
+
+# 2. Pull strong models (run in terminal)
+ollama pull qwen3:14b       if not in list
+
+# 3. Install Python dependencies
+pip install requests streamlit pandas python-telegram-bot schedule
